@@ -1,3 +1,11 @@
+/* BODY */
+
+body {
+	background-color: #659DBD;
+	color: white; 
+	font-family: 'Walter Turncoat';
+}
+
 input[type=text] {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
@@ -8,3 +16,4 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
+
