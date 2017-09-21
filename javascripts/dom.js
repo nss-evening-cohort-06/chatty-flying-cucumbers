@@ -4,7 +4,7 @@ const domString = (array) => {
 	let longDomString = "";
 	for (let i = 0; i < array.length; i++){
 	longDomString += `<div>`;
-	longDomString += `</div`;	       
+	longDomString += `</div>`;	       
 	}
 	
 	writeDomString(longDomString);
