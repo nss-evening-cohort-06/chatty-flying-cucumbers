@@ -18,7 +18,11 @@ const initializer = () => {
 	loadMessages(whenMessagesLoad, errorFunction);
 };
 
-module.exports = initializer;
+const getMessages = () => {
+	return messageArray;
+};
+
+module.exports = {initializer, getMessages};
 },{"./dom":2,"./getmessages":3}],2:[function(require,module,exports){
 "use strict";
 
