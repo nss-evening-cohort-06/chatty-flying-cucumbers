@@ -6,6 +6,10 @@ body {
 	font-family: 'Walter Turncoat';
 }
 
+#mainContainer {
+	border: 5px solid red;
+}
+
 input[type=text] {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
