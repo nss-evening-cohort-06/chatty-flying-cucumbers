@@ -12,6 +12,7 @@ const errorFunction = () => {
 
 const whenMessagesLoad = function(){
 	messageArray = JSON.parse(this.responseText).messages;
+	printToDom(messageArray);
 };
 
 const initializer = () => {
@@ -26,24 +27,25 @@ module.exports = {initializer, getMessages};
 },{"./dom":2,"./getmessages":3}],2:[function(require,module,exports){
 "use strict";
 
-const domString = (array) => {
-	let longDomString = "";
-	
-	longDomString += `<div class="col-sm-3">`;
-	longDomString += `<h2>${array.timestamp}</h2>`;
-	longDomString += `<h2>${array.username}</h2>`;
-	longDomString += `<h2>${array.text}</h2>`;
-	longDomString += `</div>`;	       
-	return longDomString;
+const outputDiv = document.getElementById('mainContainer');
+
+const domString = (message) => {
+	let domString = '';
+	domString += `<div class="col-sm-3">`;
+	domString += `<h2>${message.timestamp}</h2>`;
+	domString += `<h2>${message.username}</h2>`;
+	domString += `<h2>${message.text}</h2>`;
+	domString += `</div>`;	       
+	return domString;
 	
 
 };
 
-const domOutput = (gifArray) => {
+const domOutput = (messageArray) => {
 	let domOutput = '';
-	for (let i = 0; i < gifArray.length; i++) {
+	for (let i = 0; i < messageArray.length; i++) {
 		domOutput += (i % 4 === 0) ? '<div class="row">' : '';
-		domOutput += domString(gifArray[i]);
+		domOutput += domString(messageArray[i]);
 		domOutput += (i % 4 === 3) ? '</div>' : '';
 	}
 	return domOutput;
@@ -52,8 +54,8 @@ const domOutput = (gifArray) => {
 
 
 //writeDomString function to display in mainContainer div
-const printToDom = (gifArray) => {
-  	document.getElementById('mainContainer').innerHTML = domOutput(gifArray);
+const printToDom = (messageArray) => {
+  	outputDiv.innerHTML = domOutput(messageArray);
 
 };
 
