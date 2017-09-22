@@ -11,11 +11,14 @@ const errorFunction = () => {
 
 const whenMessagesLoad = function(){
 	messageArray = JSON.parse(this.responseText).messages;
-	printToDom(messageArray);
 };
 
 const initializer = () => {
 	loadMessages(whenMessagesLoad, errorFunction);
 };
 
-module.exports = initializer;
+const getMessages = () => {
+	return messageArray;
+};
+
+module.exports = {initializer, getMessages};
