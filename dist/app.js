@@ -12,7 +12,6 @@ const errorFunction = () => {
 
 const whenMessagesLoad = function(){
 	messageArray = JSON.parse(this.responseText).messages;
-	printToDom(messageArray);
 };
 
 const initializer = () => {
