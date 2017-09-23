@@ -1,13 +1,23 @@
 /* BODY */
 
 body {
-	background-color: #659DBD;
+	background-color: rgb(93, 170, 200);
 	color: white; 
 	font-family: 'Walter Turncoat';
 }
 
+header {
+	text-align: center;
+}
+
+nav {
+	text-align: center;
+}
+
 #mainContainer {
 	border: 5px solid red;
+	margin: 1%;
+	padding: 3%;
 }
 
 input[type=text] {
@@ -19,5 +29,15 @@ input[type=text] {
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
     width: 100%;
+}
+
+#checkBoxes {
+	margin: 5px;
+	padding: 5px;
+}
+
+/* Delete Button Style*/
+.deleteButton {
+	color: black;
 }
 

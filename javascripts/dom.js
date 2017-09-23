@@ -8,7 +8,10 @@ const domString = (message) => {
 	domString += `<h2>${message.timestamp}</h2>`;
 	domString += `<h2>${message.username}</h2>`;
 	domString += `<h2>${message.text}</h2>`;
+	domString += `<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>`;
 	domString += `</div>`;	       
+	//
+
 	return domString;
 	
 
@@ -33,3 +36,9 @@ const printToDom = (messageArray) => {
 };
 
 module.exports = printToDom;
+
+
+
+
+
+
