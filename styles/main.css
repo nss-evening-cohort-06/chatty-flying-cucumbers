@@ -12,13 +12,16 @@ header {
 
 nav {
 	text-align: center;
+	color: black;
 }
 
 #mainContainer {
 	border: 5px solid red;
 	margin: 1%;
 	padding: 3%;
+
 }
+
 
 input[type=text] {
     width: 130px;
@@ -28,7 +31,7 @@ input[type=text] {
 
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
-    width: 100%;
+    width: 80%;
 }
 
 #checkBoxes {
