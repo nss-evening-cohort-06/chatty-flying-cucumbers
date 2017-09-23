@@ -55,9 +55,9 @@ const outputDiv = document.getElementById('mainContainer');
 const domString = (message) => {
 	let domString = '';
 	domString += `<div class="col-sm-3">`;
-	domString += `<h2>${message.timestamp}</h2>`;
-	domString += `<h2>${message.username}</h2>`;
-	domString += `<h2>${message.text}</h2>`;
+	domString += `<h5>${message.timestamp}</h5>`;
+	domString += `<h5>${message.username}</h5>`;
+	domString += `<h5>${message.text}</h5>`;
 	domString += `<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>`;
 	domString += `</div>`;	       
 	//
