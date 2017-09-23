@@ -24,7 +24,30 @@ const getMessages = () => {
 };
 
 module.exports = {initializer, getMessages};
-},{"./dom":2,"./getmessages":3}],2:[function(require,module,exports){
+},{"./dom":3,"./getmessages":4}],2:[function(require,module,exports){
+"use strict";
+
+const domString = require('./dom');
+
+// document.body.addEventListener("click", function(event){
+// 	console.log("click event", event);
+// });
+
+const deleteButton = (e) => {
+	if(e.target.className ==='deleteButton'){
+		e.target.parentElement.remove();
+
+	}
+ 
+};
+
+document.body.addEventListener("click", function (e){
+	console.log(e);
+	deleteButton(e);
+});
+
+module.exports = deleteButton;
+},{"./dom":3}],3:[function(require,module,exports){
 "use strict";
 
 const outputDiv = document.getElementById('mainContainer');
@@ -70,7 +93,7 @@ module.exports = printToDom;
 
 
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 const loadMessages = (onMessageLoad, onMessageError) => {
@@ -85,11 +108,14 @@ module.exports = loadMessages;
 
 
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 const doItAll = require('./data');
+const deleteMessages = require('./deletemessages');
 
 doItAll.initializer();
 
-},{"./data":1}]},{},[4]);
+module.exports = {doItAll, deleteMessages};
+
+},{"./data":1,"./deletemessages":2}]},{},[5]);
