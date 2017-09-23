@@ -21,3 +21,8 @@ input[type=text]:focus {
     width: 100%;
 }
 
+/* Delete Button Style*/
+.deleteButton {
+	color: black;
+}
+
