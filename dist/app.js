@@ -2,6 +2,24 @@
 "use strict";
 
 const printToDom = require('./dom');
+let outputDiv = document.getElementById("mainContainer");
+let clearMessageBoard = document.getElementById("clearIt");
+
+const clearMessages = (e) => {
+	if(e.target.className ==='clearIt'){
+		outputDiv.innerHTML = "";
+	}
+};
+
+document.body.addEventListener("click", function (e){
+	clearMessages(e);
+});
+
+module.exports = clearMessages;
+},{"./dom":4}],2:[function(require,module,exports){
+"use strict";
+
+const printToDom = require('./dom');
 const loadMessages = require('./getmessages');
 
 let messageArray = [];
@@ -24,7 +42,7 @@ const getMessages = () => {
 };
 
 module.exports = {initializer, getMessages};
-},{"./dom":3,"./getmessages":4}],2:[function(require,module,exports){
+},{"./dom":4,"./getmessages":5}],3:[function(require,module,exports){
 "use strict";
 
 const domString = require('./dom');
@@ -42,12 +60,11 @@ const deleteButton = (e) => {
 };
 
 document.body.addEventListener("click", function (e){
-	console.log(e);
 	deleteButton(e);
 });
 
 module.exports = deleteButton;
-},{"./dom":3}],3:[function(require,module,exports){
+},{"./dom":4}],4:[function(require,module,exports){
 "use strict";
 
 const outputDiv = document.getElementById('mainContainer');
@@ -93,7 +110,7 @@ module.exports = printToDom;
 
 
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 const loadMessages = (onMessageLoad, onMessageError) => {
@@ -108,14 +125,15 @@ module.exports = loadMessages;
 
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 const doItAll = require('./data');
 const deleteMessages = require('./deletemessages');
+const clearMessages = require('./clearmessages');
 
 doItAll.initializer();
 
-module.exports = {doItAll, deleteMessages};
+module.exports = {doItAll, deleteMessages, clearMessages};
 
-},{"./data":1,"./deletemessages":2}]},{},[5]);
+},{"./clearmessages":1,"./data":2,"./deletemessages":3}]},{},[6]);
