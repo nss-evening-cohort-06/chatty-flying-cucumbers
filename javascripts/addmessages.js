@@ -12,7 +12,7 @@ boxField.addEventListener("keyup", function () {
 
 const addMessage = () => {
   outputDiv.innerHTML += 
-  `<div class="col-sm-3">
+   `<div>
 	<h5>${boxField.value}</h5>
 	<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>
 	</div>`;	       
