@@ -13,7 +13,7 @@ boxField.addEventListener("keyup", function () {
 
 const addMessage = () => {
   outputDiv.innerHTML += 
-  `<div class="col-sm-3">
+   `<div>
 	<h5>${boxField.value}</h5>
 	<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>
 	</div>`;	       
@@ -103,7 +103,7 @@ const outputDiv = document.getElementById('mainContainer');
 
 const domString = (message) => {
 	let domString = '';
-	domString += `<div class="col-sm-3">`;
+	domString += `<div>`;
 	domString += `<h5>${message.timestamp}</h5>`;
 	domString += `<h5>${message.username}</h5>`;
 	domString += `<h5>${message.text}</h5>`;
@@ -119,9 +119,9 @@ const domString = (message) => {
 const domOutput = (messageArray) => {
 	let domOutput = '';
 	for (let i = 0; i < messageArray.length; i++) {
-		domOutput += (i % 4 === 0) ? '<div class="row">' : '';
+		//domOutput += (i % 4 === 0) ? '<div class="row">' : '';
 		domOutput += domString(messageArray[i]);
-		domOutput += (i % 4 === 3) ? '</div>' : '';
+		//domOutput += (i % 4 === 3) ? '</div>' : '';
 	}
 	return domOutput;
 };
