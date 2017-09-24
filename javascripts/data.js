@@ -2,6 +2,10 @@
 
 const printToDom = require('./dom');
 const loadMessages = require('./getmessages');
+const addMessage = require('./addmessages');
+const outputDiv = document.getElementById('mainContainer');
+const boxField = document.getElementById('inputfield');
+
 
 let messageArray = [];
 
@@ -22,4 +26,8 @@ const getMessages = () => {
 	return messageArray;
 };
 
-module.exports = {initializer, getMessages};
+const createNewMessage = () => {
+	addMessage();
+};
+
+module.exports = {initializer, getMessages, createNewMessage};
