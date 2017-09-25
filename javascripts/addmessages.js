@@ -7,6 +7,7 @@ const outputDiv = document.getElementById("mainContainer");
 boxField.addEventListener("keyup", function () {
   if (event.keyCode === 13) {
     addMessage();
+    document.getElementById('clearBtn').disabled = false;
   }
 });
 

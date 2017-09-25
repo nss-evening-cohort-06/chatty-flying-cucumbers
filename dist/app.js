@@ -8,6 +8,7 @@ const outputDiv = document.getElementById("mainContainer");
 boxField.addEventListener("keyup", function () {
   if (event.keyCode === 13) {
     addMessage();
+    document.getElementById('clearBtn').disabled = false;
   }
 });
 
@@ -32,6 +33,7 @@ let clearMessageBoard = document.getElementById("clearIt");
 const clearMessages = (e) => {
 	if(e.target.className ==='clearIt'){
 		outputDiv.innerHTML = "";
+		document.getElementById('clearBtn').disabled = true;
 	}
 };
 
