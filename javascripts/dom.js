@@ -10,11 +10,8 @@ const domString = (message) => {
 	domString += `<h5>${message.text}</h5>`;
 	domString += `<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>`;
 	domString += `</div>`;	       
-	//
 
 	return domString;
-	
-
 };
 
 const domOutput = (messageArray) => {
@@ -27,12 +24,8 @@ const domOutput = (messageArray) => {
 	return domOutput;
 };
 
-
-
-//writeDomString function to display in mainContainer div
 const printToDom = (messageArray) => {
   	outputDiv.innerHTML = domOutput(messageArray);
-
 };
 
 module.exports = printToDom;
