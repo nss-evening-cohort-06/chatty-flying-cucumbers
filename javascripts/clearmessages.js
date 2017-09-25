@@ -7,6 +7,7 @@ let clearMessageBoard = document.getElementById("clearIt");
 const clearMessages = (e) => {
 	if(e.target.className ==='clearIt'){
 		outputDiv.innerHTML = "";
+		document.getElementById('clearBtn').disabled = true;
 	}
 };
 

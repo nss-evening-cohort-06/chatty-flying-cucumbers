@@ -1,6 +1,31 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+
+const boxField = document.getElementById("inputfield");
+const outputDiv = document.getElementById("mainContainer");
+
+boxField.addEventListener("keyup", function () {
+  if (event.keyCode === 13) {
+    addMessage();
+    document.getElementById('clearBtn').disabled = false;
+  }
+});
+
+const addMessage = () => {
+  outputDiv.innerHTML += 
+   `<div>
+	<h5>${boxField.value}</h5>
+	<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>
+	</div>`;	       
+	//
+  boxField.value = "";
+};
+
+module.exports = addMessage;
+},{}],2:[function(require,module,exports){
+"use strict";
+
 const printToDom = require('./dom');
 let outputDiv = document.getElementById("mainContainer");
 let clearMessageBoard = document.getElementById("clearIt");
@@ -8,6 +33,7 @@ let clearMessageBoard = document.getElementById("clearIt");
 const clearMessages = (e) => {
 	if(e.target.className ==='clearIt'){
 		outputDiv.innerHTML = "";
+		document.getElementById('clearBtn').disabled = true;
 	}
 };
 
@@ -16,11 +42,15 @@ document.body.addEventListener("click", function (e){
 });
 
 module.exports = clearMessages;
-},{"./dom":4}],2:[function(require,module,exports){
+},{"./dom":5}],3:[function(require,module,exports){
 "use strict";
 
 const printToDom = require('./dom');
 const loadMessages = require('./getmessages');
+const addMessage = require('./addmessages');
+const outputDiv = document.getElementById('mainContainer');
+const boxField = document.getElementById('inputfield');
+
 
 let messageArray = [];
 
@@ -41,8 +71,12 @@ const getMessages = () => {
 	return messageArray;
 };
 
-module.exports = {initializer, getMessages};
-},{"./dom":4,"./getmessages":5}],3:[function(require,module,exports){
+const createNewMessage = () => {
+	addMessage();
+};
+
+module.exports = {initializer, getMessages, createNewMessage};
+},{"./addmessages":1,"./dom":5,"./getmessages":6}],4:[function(require,module,exports){
 "use strict";
 
 const domString = require('./dom');
@@ -64,14 +98,14 @@ document.body.addEventListener("click", function (e){
 });
 
 module.exports = deleteButton;
-},{"./dom":4}],4:[function(require,module,exports){
+},{"./dom":5}],5:[function(require,module,exports){
 "use strict";
 
 const outputDiv = document.getElementById('mainContainer');
 
 const domString = (message) => {
 	let domString = '';
-	domString += `<div class="col-sm-3">`;
+	domString += `<div>`;
 	domString += `<h5>${message.timestamp}</h5>`;
 	domString += `<h5>${message.username}</h5>`;
 	domString += `<h5>${message.text}</h5>`;
@@ -87,9 +121,9 @@ const domString = (message) => {
 const domOutput = (messageArray) => {
 	let domOutput = '';
 	for (let i = 0; i < messageArray.length; i++) {
-		domOutput += (i % 4 === 0) ? '<div class="row">' : '';
+		//domOutput += (i % 4 === 0) ? '<div class="row">' : '';
 		domOutput += domString(messageArray[i]);
-		domOutput += (i % 4 === 3) ? '</div>' : '';
+		//domOutput += (i % 4 === 3) ? '</div>' : '';
 	}
 	return domOutput;
 };
@@ -110,7 +144,7 @@ module.exports = printToDom;
 
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 const loadMessages = (onMessageLoad, onMessageError) => {
@@ -125,7 +159,7 @@ module.exports = loadMessages;
 
 
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 "use strict";
 
 const doItAll = require('./data');
@@ -167,3 +201,12 @@ checkboxLarge.addEventListener( 'change', function() {
 
 module.exports = {outputDarkTheme, outputLargeText};
 },{"./dom":4}]},{},[6]);
+
+const createNewMessage = require('./data');
+
+doItAll.initializer();
+
+module.exports = {doItAll, deleteMessages, clearMessages, createNewMessage};
+
+},{"./clearmessages":2,"./data":3,"./deletemessages":4}]},{},[7]);
+
