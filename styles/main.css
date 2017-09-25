@@ -48,3 +48,15 @@ input[type=text] {
 	color: black;
 }
 
+.darkTheme{
+	background-color: black;
+	color: hotpink;
+}
+
+.white-text {
+	color: white;
+}
+
+.largeText {
+	font-size: 40pt;
+}
