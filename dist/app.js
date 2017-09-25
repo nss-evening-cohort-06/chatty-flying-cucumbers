@@ -1,7 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
-
 const boxField = document.getElementById("inputfield");
 const outputDiv = document.getElementById("mainContainer");
 
@@ -60,7 +59,6 @@ const addMessage = require('./addmessages');
 const outputDiv = document.getElementById('mainContainer');
 const boxField = document.getElementById('inputfield');
 
-
 let messageArray = [];
 
 const errorFunction = () => {
@@ -84,22 +82,16 @@ const createNewMessage = () => {
 	addMessage();
 };
 
-module.exports = {initializer, getMessages, createNewMessage};
+module.exports = {initializer, getMessages, createNewMessage,};
 },{"./addmessages":1,"./dom":5,"./getmessages":6}],4:[function(require,module,exports){
 "use strict";
 
 const domString = require('./dom');
 
-// document.body.addEventListener("click", function(event){
-// 	console.log("click event", event);
-// });
-
 const deleteButton = (e) => {
 	if(e.target.className ==='deleteButton'){
 		e.target.parentElement.remove();
-
 	}
- 
 };
 
 document.body.addEventListener("click", function (e){
@@ -120,11 +112,8 @@ const domString = (message) => {
 	domString += `<h5>${message.text}</h5>`;
 	domString += `<button type='input' class='deleteButton' id='delete' value='delete'>Delete</button>`;
 	domString += `</div>`;	       
-	//
 
 	return domString;
-	
-
 };
 
 const domOutput = (messageArray) => {
@@ -137,12 +126,8 @@ const domOutput = (messageArray) => {
 	return domOutput;
 };
 
-
-
-//writeDomString function to display in mainContainer div
 const printToDom = (messageArray) => {
   	outputDiv.innerHTML = domOutput(messageArray);
-
 };
 
 module.exports = printToDom;
@@ -177,7 +162,6 @@ const clearMessages = require('./clearmessages');
 const toggleControls = require('./pageoptions');
 const createNewMessage = require('./data');
 
-
 doItAll.initializer();
 toggleControls();
 
@@ -187,30 +171,29 @@ toggleControls();
 },{"./clearmessages":2,"./data":3,"./deletemessages":4,"./pageoptions":8}],8:[function(require,module,exports){
 "use strict";
 
+const mainContainer = document.getElementById("mainContainer");
+
 const darkTheme = (event) => {
     if (event.target.checked === true) {
-        console.log("document", document.body.classList);
-        document.body.classList.remove("defaultTheme");
-        document.body.classList.add("darkTheme");
-        document.getElementById("body").classList.add("darkTheme");
+        // console.log("document", document.body.classList);
+        mainContainer.classList.remove("defaultTheme");
+        mainContainer.classList.add("darkTheme");
     } else if (event.target.checked === false) {
-        document.body.classList.remove("darkTheme");
-        document.body.classList.add("defaultTheme");
-        document.getElementById("body").classList.remove("darkTheme");
-
+        mainContainer.classList.remove("darkTheme");
+        mainContainer.classList.add("defaultTheme");
     }
 };
 
 const largeText = (event) => {
     if (event.target.checked === true) {
-        document.body.classList.add("largeText");
+        mainContainer.classList.add("largeText");
     } else if (event.target.checked === false) {
-        document.body.classList.remove("largeText");
+        mainContainer.classList.remove("largeText");
     }
 };
 
 const toggleControls = () => {
-    console.log("toggleControls", toggleControls);
+    // console.log("toggleControls", toggleControls);
     document.getElementById("checkbox").addEventListener("change", (event) => {
         console.log("event", event);
         if (event.target.id === "darkTheme") {

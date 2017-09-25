@@ -6,7 +6,6 @@ const clearMessages = require('./clearmessages');
 const toggleControls = require('./pageoptions');
 const createNewMessage = require('./data');
 
-
 doItAll.initializer();
 toggleControls();
 

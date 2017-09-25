@@ -1,6 +1,5 @@
 "use strict";
 
-
 const boxField = document.getElementById("inputfield");
 const outputDiv = document.getElementById("mainContainer");
 

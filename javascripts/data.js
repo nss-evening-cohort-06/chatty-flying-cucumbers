@@ -6,7 +6,6 @@ const addMessage = require('./addmessages');
 const outputDiv = document.getElementById('mainContainer');
 const boxField = document.getElementById('inputfield');
 
-
 let messageArray = [];
 
 const errorFunction = () => {
@@ -30,4 +29,4 @@ const createNewMessage = () => {
 	addMessage();
 };
 
-module.exports = {initializer, getMessages, createNewMessage};
+module.exports = {initializer, getMessages, createNewMessage,};

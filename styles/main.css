@@ -1,5 +1,11 @@
 /* BODY */
 
+body {
+	background-color: rgb(93, 170, 200);
+	color: white; 
+	font-family: 'Walter Turncoat';
+}
+
 .defaultTheme {
 	background-color: rgb(93, 170, 200);
 	color: white; 
@@ -16,7 +22,6 @@ h4 {
 	margin: 16% 1% 1% 1%;
 }
 
-
 /*MESSAGE CONTAINER*/
 #mainContainer {
 	border: 5px double black;
@@ -25,17 +30,11 @@ h4 {
 	padding: 3%;
 }
 
-
 input[type=text] {
     width: 70%;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-
-/* When the input field gets focus, change its width to 100% */
-/*input[type=text]:focus {
-    width: 80%;
-}*/
 
 #checkBoxes {
 	margin: 5px;
@@ -51,12 +50,14 @@ input[type=text] {
 .darkTheme{
 	background-color: black;
 	color: hotpink;
+	font-family: 'Walter Turncoat';
 }
 
 .white-text {
 	color: white;
 }
 
-.largeText {
-	font-size: 40pt;
+.largeText h5 {
+	font-size: 25pt;
+	font-family: 'Walter Turncoat';
 }
