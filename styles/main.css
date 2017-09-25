@@ -1,12 +1,13 @@
 /* BODY */
 
-body {
+.defaultTheme {
 	background-color: rgb(93, 170, 200);
 	color: white; 
 	font-family: 'Walter Turncoat';
 }
 
 nav {
+	background-color: rgb(93, 170, 200);
 	text-align: center;
 	color: black;
 }

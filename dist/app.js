@@ -174,12 +174,12 @@ module.exports = loadMessages;
 const doItAll = require('./data');
 const deleteMessages = require('./deletemessages');
 const clearMessages = require('./clearmessages');
-const pageOptions = require('./pageoptions');
+const toggleControls = require('./pageoptions');
 const createNewMessage = require('./data');
 
-doItAll.initializer();
 
-module.exports = {doItAll, deleteMessages, clearMessages, createNewMessage, pageOptions};
+doItAll.initializer();
+toggleControls();
 
 
 
@@ -187,30 +187,39 @@ module.exports = {doItAll, deleteMessages, clearMessages, createNewMessage, page
 },{"./clearmessages":2,"./data":3,"./deletemessages":4,"./pageoptions":8}],8:[function(require,module,exports){
 "use strict";
 
-let outputDarkTheme = document.getElementById('outputDarkTheme');
+const darkTheme = (event) => {
+    if (event.target.checked === true) {
+        console.log("document", document.body.classList);
+        document.body.classList.remove("defaultTheme");
+        document.body.classList.add("darkTheme");
+        document.getElementById("body").classList.add("darkTheme");
+    } else if (event.target.checked === false) {
+        document.body.classList.remove("darkTheme");
+        document.body.classList.add("defaultTheme");
+        document.getElementById("body").classList.remove("darkTheme");
 
-const printDom = require("./dom");
-
-let outputLargeText = document.getElementById('outputLargeText');
-let checkboxDark = document.querySelector("input[name=checkboxDark]");
-let checkboxLarge = document.querySelector("input[name=checkboxLarge]");
-
-checkboxDark.addEventListener( 'change', function() {
-    console.log(this);
-    if(this.checked) {
-        outputDarkTheme.classList.add("darkTheme");
-    } else {
-        outputDarkTheme.classList.remove("darkTheme");
     }
-});
+};
 
-checkboxLarge.addEventListener( 'change', function() {
-    if(this.checked) {
-        outputLargeText.classList.add("largeText");
-    } else {
-        outputLargeText.classList.remove("largeText");
+const largeText = (event) => {
+    if (event.target.checked === true) {
+        document.body.classList.add("largeText");
+    } else if (event.target.checked === false) {
+        document.body.classList.remove("largeText");
     }
-});
+};
 
-module.exports = {outputDarkTheme, outputLargeText};
-},{"./dom":5}]},{},[7]);
+const toggleControls = () => {
+    console.log("toggleControls", toggleControls);
+    document.getElementById("checkbox").addEventListener("change", (event) => {
+        console.log("event", event);
+        if (event.target.id === "darkTheme") {
+            darkTheme(event);
+        } else if (event.target.id === "largeText") {
+            largeText(event);
+        }
+    });
+};
+
+module.exports = toggleControls;
+},{}]},{},[7]);
