@@ -166,12 +166,16 @@ const doItAll = require('./data');
 const deleteMessages = require('./deletemessages');
 const clearMessages = require('./clearmessages');
 const pageOptions = require('./pageoptions');
+const createNewMessage = require('./data');
 
 doItAll.initializer();
 
-module.exports = {doItAll, deleteMessages, clearMessages, pageOptions};
+module.exports = {doItAll, deleteMessages, clearMessages, createNewMessage, pageOptions};
 
-},{"./clearmessages":1,"./data":2,"./deletemessages":3,"./pageoptions":7}],7:[function(require,module,exports){
+
+
+
+},{"./clearmessages":2,"./data":3,"./deletemessages":4,"./pageoptions":8}],8:[function(require,module,exports){
 "use strict";
 
 let outputDarkTheme = document.getElementById('outputDarkTheme');
@@ -200,13 +204,4 @@ checkboxLarge.addEventListener( 'change', function() {
 });
 
 module.exports = {outputDarkTheme, outputLargeText};
-},{"./dom":4}]},{},[6]);
-
-const createNewMessage = require('./data');
-
-doItAll.initializer();
-
-module.exports = {doItAll, deleteMessages, clearMessages, createNewMessage};
-
-},{"./clearmessages":2,"./data":3,"./deletemessages":4}]},{},[7]);
-
+},{"./dom":5}]},{},[7]);
