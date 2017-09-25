@@ -15,11 +15,15 @@ nav {
 	color: black;
 }
 
-#mainContainer {
-	border: 5px solid red;
-	margin: 1%;
-	padding: 3%;
+h4{
+	margin: 16% 1% 1% 1%;
+}
 
+#mainContainer {
+	border: 5px double black;
+	box-shadow: 3px 3px 3px #404040;
+	margin: 2% 1% 1% 1%;
+	padding: 3%;
 }
 
 
