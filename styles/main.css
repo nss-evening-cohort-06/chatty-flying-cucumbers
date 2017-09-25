@@ -1,5 +1,4 @@
 /* BODY */
-
 body {
 	background-color: rgb(93, 170, 200);
 	color: white; 
@@ -7,14 +6,17 @@ body {
 }
 
 nav {
+	background-color: rgb(93, 170, 200);
 	text-align: center;
 	color: black;
 }
 
-h4{
+h4 {
 	margin: 16% 1% 1% 1%;
 }
 
+
+/*MESSAGE CONTAINER*/
 #mainContainer {
 	border: 5px double black;
 	box-shadow: 3px 3px 3px #404040;
@@ -44,6 +46,7 @@ input[type=text] {
 	color: black;
 }
 
+/*PAGE OPTIONS*/
 .darkTheme{
 	background-color: black;
 	color: hotpink;
