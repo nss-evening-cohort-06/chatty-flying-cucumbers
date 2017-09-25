@@ -131,9 +131,39 @@ module.exports = loadMessages;
 const doItAll = require('./data');
 const deleteMessages = require('./deletemessages');
 const clearMessages = require('./clearmessages');
+const pageOptions = require('./pageoptions');
 
 doItAll.initializer();
 
-module.exports = {doItAll, deleteMessages, clearMessages};
+module.exports = {doItAll, deleteMessages, clearMessages, pageOptions};
 
-},{"./clearmessages":1,"./data":2,"./deletemessages":3}]},{},[6]);
+},{"./clearmessages":1,"./data":2,"./deletemessages":3,"./pageoptions":7}],7:[function(require,module,exports){
+"use strict";
+
+let outputDarkTheme = document.getElementById('outputDarkTheme');
+
+const printDom = require("./dom");
+
+let outputLargeText = document.getElementById('outputLargeText');
+let checkboxDark = document.querySelector("input[name=checkboxDark]");
+let checkboxLarge = document.querySelector("input[name=checkboxLarge]");
+
+checkboxDark.addEventListener( 'change', function() {
+    console.log(this);
+    if(this.checked) {
+        outputDarkTheme.classList.add("darkTheme");
+    } else {
+        outputDarkTheme.classList.remove("darkTheme");
+    }
+});
+
+checkboxLarge.addEventListener( 'change', function() {
+    if(this.checked) {
+        outputLargeText.classList.add("largeText");
+    } else {
+        outputLargeText.classList.remove("largeText");
+    }
+});
+
+module.exports = {outputDarkTheme, outputLargeText};
+},{"./dom":4}]},{},[6]);
